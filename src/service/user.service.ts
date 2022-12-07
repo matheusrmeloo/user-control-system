@@ -9,4 +9,8 @@ export class UserService {
   async createUser(data: User) {
     return this.userRepository.save(data);
   }
+
+  async getUsers() {
+    return this.userRepository.getAll();
+  }
 }
