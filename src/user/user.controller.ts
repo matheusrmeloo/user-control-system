@@ -1,9 +1,10 @@
 import { Body, Controller, Get, HttpCode, Post } from '@nestjs/common';
-import { User } from 'src/interface/user.interface';
-import { UserService } from 'src/service/user.service';
+import { User } from './user.interface';
+import { UserService } from './user.service';
 
 @Controller('/user')
 export class UserController {
+  
   constructor(private userService: UserService) {}
 
   @Post()

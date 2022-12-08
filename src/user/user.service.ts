@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { User } from 'src/interface/user.interface';
-import { UserRepository } from 'src/repository/user.repository';
+import { User } from './user.interface';
+import { UserRepository } from './user.repository';
 
 @Injectable()
 export class UserService {
-  private userRepository = new UserRepository();
+  constructor(private userRepository: UserRepository) {}
 
   async createUser(data: User) {
     return this.userRepository.save(data);
