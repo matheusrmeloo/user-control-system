@@ -14,6 +14,9 @@ import {
 
 export class Product {
   @IsNotEmpty()
+  id: number;
+
+  @IsNotEmpty()
   name: string;
 
   @IsPositive()
@@ -50,6 +53,9 @@ export class Product {
 
   @IsBoolean()
   deleted: boolean = false;
+
+  @IsNotEmpty()
+  userId: number;
 }
 
 export class Properties {
