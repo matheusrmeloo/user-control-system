@@ -3,9 +3,6 @@ import { IsUniqueEmail } from '../validator/user.validator';
 
 export class CreateUserDTO {
   @IsNotEmpty()
-  id: number;
-
-  @IsNotEmpty()
   username: string;
 
   @IsEmail()

@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { CreateUserDTO } from './dto/user.dto';
+import { UserEntity } from './user.entity';
 
 @Injectable()
 export class UserRepository {
-  private users = [];
+  private users: UserEntity[] = [];
 
-  async save(user: CreateUserDTO) {
+  async save(user: UserEntity) {
     this.users.push(user);
     return user;
   }
@@ -15,7 +15,7 @@ export class UserRepository {
   }
 
   async existEmail(email: string) {
-    const user: boolean = this.users.find((user) => user.email === email);
+    const user = this.users.find((user) => user.email === email);
     return user !== undefined;
   }
 }
