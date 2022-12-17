@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { ListUsersDTO } from './dto/user.dto';
 import { UserEntity } from './user.entity';
 
 @Injectable()
@@ -11,7 +12,7 @@ export class UserRepository {
   }
 
   async getAll() {
-    return this.users;
+    return this.users.map((user) => new ListUsersDTO(user.id, user.username));
   }
 
   async existEmail(email: string) {
